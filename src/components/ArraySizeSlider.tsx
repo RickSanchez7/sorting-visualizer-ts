@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import './style.css';
 
 type Props = {
   onInputSizeChanged: (n: number) => void;
@@ -12,15 +13,8 @@ export const ArraySizeSlider: FC<Props> = ({
   value,
 }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div style={{ color: '#0D1929', fontWeight: 'bold' }}>Array Size</div>
+    <div className='inputContainer'>
+      <div className='inputText'>Array Size</div>
       <input
         disabled={isVisualizing}
         type='range'
@@ -28,7 +22,7 @@ export const ArraySizeSlider: FC<Props> = ({
         max={400}
         step={2}
         value={value}
-        style={{ width: 150 }}
+        className='inputStyle'
         onChange={e => onInputSizeChanged(Number(e.target.value))}
       />
     </div>

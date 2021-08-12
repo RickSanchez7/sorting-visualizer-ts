@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import './style.css';
 
 type Props = {
   onSpeedChange: any;
@@ -12,24 +13,15 @@ export const SpeedSlider: FC<Props> = ({
   value,
 }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div style={{ color: '#0D1929', fontWeight: 'bold' }}>
-        Visualization Speed
-      </div>
+    <div className='inputContainer'>
+      <div className='inputText'>Visualization Speed</div>
       <input
         type='range'
         disabled={isVisualizing}
         min={1}
         max={100}
         value={value}
-        style={{ width: 150 }}
+        className='inputStyle'
         onChange={e => onSpeedChange(e.target.value)}
       />
     </div>

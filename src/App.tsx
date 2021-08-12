@@ -1,3 +1,4 @@
+import './App.css';
 import { useState, FC } from 'react';
 // import selectionSort from './algorithms/selection-sort';
 import { generateRandomizedArray } from './helpers/randomizeArray';
@@ -90,49 +91,17 @@ const Home: FC = () => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
-        justifyContent: 'center',
-        width: '100vw',
-      }}
-    >
-      <div
-        style={{
-          color: '#fff',
-          background: '#00BFFF',
-          padding: 10,
-          display: 'flex',
-          justifyContent: 'center',
-          fontSize: '18px',
-        }}
-      >
-        {currentAlgorithm}
-      </div>
-      <div
-        style={{
-          backgroundColor: '#0D1929',
-          display: 'flex',
-          height: '100%',
-          width: '100vw',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '0px 0px 0px 0px',
-        }}
-      >
+    <div className='container'>
+      <div className='title'>{currentAlgorithm}</div>
+      <div className='mainContainer'>
         {randomizedArray.map((item, index) => {
           const height = (item / maxItem) * 100;
           const width = (1 / randomizedArray.length) * 100;
           return (
             <div
               key={index}
+              className='bar'
               style={{
-                height: '100%',
-                display: 'flex',
-                alignItems: 'center',
                 width: `${width * 0.95}%`,
               }}
             >
@@ -144,22 +113,14 @@ const Home: FC = () => {
                 style={{
                   height: `calc(${height}% - 20px)`,
                   width: '100%',
-                  margin: 'auto 10% 0 10%',
+                  margin: 'auto 10% 0',
                 }}
               />
             </div>
           );
         })}
       </div>
-      <div
-        style={{
-          display: 'flex',
-          width: '100%',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-          height: '100px',
-        }}
-      >
+      <div className='tabBar'>
         <StartButton onClick={onVisualize} />
         <RandomizeButton onClick={onRandomize} />
         <SpeedSlider

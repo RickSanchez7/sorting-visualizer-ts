@@ -1,0 +1,39 @@
+.btn {
+  width: 130px;
+  background: #0d1929;
+  border-color: #0d1929;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputText {
+  color: #0d1929;
+  font-weight: bold;
+}
+
+.inputStyle {
+  width: 150px;
+}
+
+@media screen and (max-width: 800px) {
+  .btn {
+    width: 90px;
+    font-size: 10px;
+  }
+
+  .inputText {
+    font-size: 10px;
+  }
+
+  .inputStyle {
+    width: 90px;
+  }
+}

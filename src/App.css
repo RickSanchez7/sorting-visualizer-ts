@@ -1,1 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
 
+.title {
+  color: #fff;
+  background: #00bfff;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.mainContainer {
+  background-color: #0d1929;
+  display: flex;
+  height: 100%;
+  width: 100vw;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.tabBar {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+}

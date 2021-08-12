@@ -42,9 +42,6 @@ export const SortingBar: FC<Props> = ({
       style={{
         ...style,
         backgroundColor: color,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
       }}
     />
   );
