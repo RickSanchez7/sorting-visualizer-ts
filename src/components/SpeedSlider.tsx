@@ -18,7 +18,7 @@ export const SpeedSlider: FC<Props> = ({
       <input
         type='range'
         disabled={isVisualizing}
-        min={1}
+        min={0}
         max={100}
         value={value}
         className='inputStyle'

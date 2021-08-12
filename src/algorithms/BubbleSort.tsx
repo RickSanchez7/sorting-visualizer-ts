@@ -33,7 +33,6 @@ export const BubbleSort = async ({
         array[j + 1] = array[j];
         array[j] = temp;
 
-        array = array.concat();
         setArray(array);
       }
     }

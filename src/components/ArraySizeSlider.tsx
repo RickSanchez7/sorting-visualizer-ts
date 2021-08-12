@@ -18,7 +18,7 @@ export const ArraySizeSlider: FC<Props> = ({
       <input
         disabled={isVisualizing}
         type='range'
-        min={30}
+        min={20}
         max={400}
         step={2}
         value={value}
