@@ -36,6 +36,9 @@ export const SortingBar: FC<Props> = ({
       color = 'yellow';
     }
   }
+  if (filled.length < 1) {
+    color = '#efefef';
+  }
 
   return (
     <div
