@@ -6,6 +6,7 @@ type Props = {
   randomizedArray: number[];
   index: number;
   style: any;
+  finished: boolean;
 };
 
 export const SortingBar: FC<Props> = ({
@@ -14,6 +15,7 @@ export const SortingBar: FC<Props> = ({
   randomizedArray,
   index,
   style,
+  finished,
 }) => {
   let color = '#efefef';
 
@@ -36,9 +38,13 @@ export const SortingBar: FC<Props> = ({
       color = 'yellow';
     }
   }
-  if (filled.length < 1) {
-    color = '#efefef';
-  }
+  // if (filled.length < 1) {
+  //   color = '#efefef';
+  // }
+
+  // if (finished) {
+  //   color = '#efefef';
+  // }
 
   return (
     <div

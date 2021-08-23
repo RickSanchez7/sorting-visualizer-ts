@@ -4,11 +4,13 @@ import { useState, FC } from 'react';
 import { generateRandomizedArray } from './helpers/randomizeArray';
 // import SortingBar from '../SortingBar/SortingBar';
 import { BubbleSort } from './algorithms/BubbleSort';
+import { MergeSort } from './algorithms/MergeSort';
 import { SortingBar } from './components/Sortingbar';
 import { StartButton } from './components/StartButton';
 import { RandomizeButton } from './components/RandomizeArray';
 import { SpeedSlider } from './components/SpeedSlider';
 import { ArraySizeSlider } from './components/ArraySizeSlider';
+import { AlgoritmPicker } from './components/AlgoritmPicker';
 // import insertionSort from '../../algorithms/insertion-sort';
 // import inplaceMergeSortWrapper from '../../algorithms/inplace-merge-sort';
 // import mergeSortWrapper from '../../algorithms/merge-sort';
@@ -28,17 +30,17 @@ const Home: FC = () => {
   const [visualizationSpeed, setVisualizationSpeed] = useState(50);
   const [value, setValue] = useState(50);
   const [maxItem, setMaxItem] = useState(Math.max(...randomizedArray));
-  const [currentAlgorithm] = useState('Bubble Sort');
+  const [currentAlgorithm, setCurrentAlgorithm] = useState('Bubble Sort');
   const [filled, setFilled] = useState([]);
   const [finished, setFinished] = useState(true);
 
-  // const algorithms = [
-  //   'Bubble Sort',
-  //   'Merge Sort',
-  //   'Insertion Sort',
-  //   'Selection Sort',
-  //   'QuickSort',
-  // ];
+  const algorithms = [
+    'Bubble Sort',
+    'Merge Sort',
+    // 'QuickSort',
+    // 'Insertion Sort',
+    // 'Selection Sort',
+  ];
 
   const onRandomize = (): number[] => {
     setFilled([]);
@@ -83,6 +85,18 @@ const Home: FC = () => {
           setFinished: setFinished,
         });
         break;
+      case 'Merge Sort':
+        await MergeSort({
+          array: rArray || randomizedArray,
+          setArray: setRandomizedArray,
+          leftIndex: 0,
+          rightIndex: randomizedArray.length - 1,
+          visualizationSpeed: visualizationSpeed,
+          setColorsArray: setColorsArray,
+          setFilled: setFilled,
+          setFinished: setFinished,
+        });
+        break;
       default:
         break;
     }
@@ -110,6 +124,7 @@ const Home: FC = () => {
                 index={index}
                 randomizedArray={randomizedArray}
                 filled={filled}
+                finished={finished}
                 style={{
                   height: `calc(${height}% - 20px)`,
                   width: '100%',
@@ -123,6 +138,11 @@ const Home: FC = () => {
       <div className='tabBar'>
         <StartButton onClick={onVisualize} />
         <RandomizeButton onClick={onRandomize} />
+        <AlgoritmPicker
+          algorithms={algorithms}
+          setCurrentAlgorithm={setCurrentAlgorithm}
+          currentAlgorithm={currentAlgorithm}
+        />
         <SpeedSlider
           onSpeedChange={onSpeedChange}
           isVisualizing={isVisualizing}
